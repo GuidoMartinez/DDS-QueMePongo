@@ -7,22 +7,17 @@ public class Prenda {
 
   public Prenda(TipoPrenda tipo, MaterialPrenda material, ColorRGB colorPrimario) {
 
-    try {
       validarCreacion(tipo, material, colorPrimario);
       this.tipo = tipo;
       this.material = material;
       this.colorPrimario = colorPrimario;
-
-    } catch (PrendaIncompletaException e) {
-      throw new PrendaIncompletaException("Debe especificarse el tipo, material y colorPrimario");
-    }
   } // Validar una excepcion en el constructor me hace ruido, pero implementar un Builder me parece sumar
-  // mucha complejidad para los requerimientos actuales
+  // mucha complejidad para los requerimientos actuales // principio Fail Fast
 
 
   private void validarCreacion(TipoPrenda tipo, MaterialPrenda material, ColorRGB colorPrimario) {
     if (tipo == null || material == null || colorPrimario == null) {
-      throw new PrendaIncompletaException("Prenda invalida");
+      throw new PrendaIncompletaException("Prenda invalida, faltan atributos obligatorios");
     }
   }
 
