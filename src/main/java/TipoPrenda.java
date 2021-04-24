@@ -20,7 +20,9 @@ public enum TipoPrenda {
     }
   },
   GAFAS {
-    public CategoriaPrenda getCategoria() { return CategoriaPrenda.ACCESORIOS; }
+    public CategoriaPrenda getCategoria() {
+      return CategoriaPrenda.ACCESORIOS;
+    }
   };
 
   public abstract CategoriaPrenda getCategoria();

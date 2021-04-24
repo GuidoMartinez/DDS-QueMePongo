@@ -23,21 +23,18 @@ public class PrendaTest {
   }
   @Test
   void unaPrendaSinTipoNoPuedeSerCreada() {
-    Assertions.assertThrows(PrendaIncompletaException.class,() -> {
-      prendaDeCueroYColorPrimario(null);
-    });
+    Assertions.assertThrows(PrendaIncompletaException.class,
+        () -> prendaDeCueroYColorPrimario(null));
   }
   @Test
   void unaPrendaSinMaterialNoPuedeSerCreada() {
-    Assertions.assertThrows(PrendaIncompletaException.class,() -> {
-      new Prenda(TipoPrenda.CAMISA,null,new ColorRGB(5,5,5));
-    });
+    Assertions.assertThrows(PrendaIncompletaException.class,
+        () -> new Prenda(TipoPrenda.CAMISA,null,new ColorRGB(5,5,5)));
   }
   @Test
-  void unaPrendaSinColorPrimarioNoPuedeSerCread() {
-    Assertions.assertThrows(PrendaIncompletaException.class,() -> {
-      new Prenda(TipoPrenda.CAMISA,MaterialPrenda.ALGODON,null);
-    });
+  void unaPrendaSinColorPrimarioNoPuedeSerCreada() {
+    Assertions.assertThrows(PrendaIncompletaException.class,
+        () -> new Prenda(TipoPrenda.CAMISA,MaterialPrenda.ALGODON,null));
   }
 
 
