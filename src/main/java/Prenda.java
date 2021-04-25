@@ -19,6 +19,10 @@ public class Prenda {
     return tipo.getCategoria();
   }
 
+  public TipoPrenda getTipo() {
+    return tipo;
+  }
+
   public Material getMaterial() {
     return material;
   }

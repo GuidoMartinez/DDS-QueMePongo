@@ -1,6 +1,7 @@
 import static java.util.Objects.requireNonNull;
 
 public class BorradorPrenda {
+
   private TipoPrenda tipo;
   private Material material;
   private ColorRGB colorPrimario;
@@ -11,19 +12,19 @@ public class BorradorPrenda {
     this.tipo = requireNonNull(tipo, "el tipo de prenda no puede ser nulo");
   }
 
-  public void setMaterial(Material material) {
+  public void agregarMaterial(Material material) {
     this.material = material;
   }
 
-  public void setColorPrimario(ColorRGB colorPrimario) {
+  public void agregarColorPrimario(ColorRGB colorPrimario) {
     this.colorPrimario = colorPrimario;
   }
 
-  public void setColorSecundario(ColorRGB colorSecundario) {
+  public void agregarColorSecundario(ColorRGB colorSecundario) {
     this.colorSecundario = colorSecundario;
   }
 
-  public void setTrama(Trama trama) {
+  public void agregarTrama(Trama trama) {
     if (trama == null) {
       this.trama = Trama.LISA;
     } else {

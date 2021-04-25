@@ -19,7 +19,7 @@ public class TestBorradorPrenda {
   @DisplayName("Si no indico una trama, o la nulleo, por defecto es lisa")
   void tramaSinEspecificarEsLISA() {
     BorradorPrenda borradorTramaNull = borradorPrendaValidaSinTrama();
-    borradorTramaNull.setTrama(null);
+    borradorTramaNull.agregarTrama(null);
     Prenda prendaLISA = borradorTramaNull.crearPrenda();
 
     assertEquals(borradorPrendaValidaSinTrama().crearPrenda().getTrama(), Trama.LISA);
@@ -44,23 +44,23 @@ public class TestBorradorPrenda {
 
   private BorradorPrenda borradorPrendaValidaSinTrama() {
     BorradorPrenda prendaCreable = new BorradorPrenda(TipoPrenda.CAMISA);
-    prendaCreable.setColorPrimario(new ColorRGB(0,10,20));
-    prendaCreable.setMaterial(Material.ALGODON);
+    prendaCreable.agregarColorPrimario(new ColorRGB(0,10,20));
+    prendaCreable.agregarMaterial(Material.ALGODON);
 
     return prendaCreable;
   }
 
   private BorradorPrenda borradorSinColorPrimario() {
     BorradorPrenda sinColorPrimario = new BorradorPrenda(TipoPrenda.PANTALON);
-    sinColorPrimario.setMaterial(Material.ALGODON);
+    sinColorPrimario.agregarMaterial(Material.ALGODON);
 
     return sinColorPrimario;
   }
 
   private BorradorPrenda borradorSinMaterial() {
     BorradorPrenda sinMaterial = new BorradorPrenda(TipoPrenda.CAMISA);
-    sinMaterial.setColorPrimario(new ColorRGB(0,10,20));
-    sinMaterial.setColorSecundario(new ColorRGB(20,30,50));
+    sinMaterial.agregarColorPrimario(new ColorRGB(0,10,20));
+    sinMaterial.agregarColorSecundario(new ColorRGB(20,30,50));
 
     return sinMaterial;
   }
