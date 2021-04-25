@@ -1,5 +1,5 @@
 public enum TipoPrenda {
-  ZAPATO {
+  ZAPATOS {
     public CategoriaPrenda getCategoria() {
       return CategoriaPrenda.CALZADO;
     }
@@ -22,6 +22,16 @@ public enum TipoPrenda {
   GAFAS {
     public CategoriaPrenda getCategoria() {
       return CategoriaPrenda.ACCESORIOS;
+    }
+  },
+  CHOMBA {
+    public CategoriaPrenda getCategoria() {
+      return CategoriaPrenda.PARTE_SUPERIOR;
+    }
+  },
+  ZAPATILLAS {
+    public CategoriaPrenda getCategoria() {
+      return CategoriaPrenda.CALZADO;
     }
   };
 

@@ -1,36 +1,25 @@
 public class Prenda {
   private TipoPrenda tipo;
-  private MaterialPrenda material;
+  private Material material;
   private ColorRGB colorPrimario;
   private ColorRGB colorSecundario;
+  private Trama trama;
 
 
-  public Prenda(TipoPrenda tipo, MaterialPrenda material, ColorRGB colorPrimario) {
-
-    validarCreacion(tipo, material, colorPrimario);
+  public Prenda(TipoPrenda tipo, Material material, ColorRGB colorPrimario,
+                ColorRGB colorSecundario, Trama trama) {
     this.tipo = tipo;
     this.material = material;
     this.colorPrimario = colorPrimario;
-  } // Validar una excepcion en el constructor me hace ruido, pero implementar un Builder
-  // me parece sumar mucha complejidad para los requerimientos actuales // principio Fail Fast
-
-
-  private void validarCreacion(TipoPrenda tipo, MaterialPrenda material, ColorRGB colorPrimario) {
-    if (tipo == null || material == null || colorPrimario == null) {
-      throw new PrendaIncompletaException("Prenda invalida, faltan atributos obligatorios");
-    }
-  }
-
-
-  public void setColorSecundario(ColorRGB colorSecundario) {
     this.colorSecundario = colorSecundario;
+    this.trama = trama;
   }
 
   public CategoriaPrenda getCategoria() {
     return tipo.getCategoria();
   }
 
-  public MaterialPrenda getMaterial() {
+  public Material getMaterial() {
     return material;
   }
 
@@ -40,5 +29,9 @@ public class Prenda {
 
   public ColorRGB getColorSecundario() {
     return colorSecundario;
+  }
+
+  public Trama getTrama() {
+    return trama;
   }
 }
