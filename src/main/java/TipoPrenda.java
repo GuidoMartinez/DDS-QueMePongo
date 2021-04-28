@@ -1,39 +1,19 @@
 public enum TipoPrenda {
-  ZAPATOS {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.CALZADO;
-    }
-  },
-  CAMISA {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.PARTE_SUPERIOR;
-    }
-  },
-  PANTALON {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.PARTE_INFERIOR;
-    }
-  },
-  REMERA {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.PARTE_SUPERIOR;
-    }
-  },
-  GAFAS {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.ACCESORIOS;
-    }
-  },
-  CHOMBA {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.PARTE_SUPERIOR;
-    }
-  },
-  ZAPATILLAS {
-    public CategoriaPrenda getCategoria() {
-      return CategoriaPrenda.CALZADO;
-    }
-  };
+  ZAPATOS(CategoriaPrenda.CALZADO),
+  CAMISA(CategoriaPrenda.PARTE_SUPERIOR),
+  PANTALON(CategoriaPrenda.PARTE_INFERIOR),
+  REMERA(CategoriaPrenda.PARTE_SUPERIOR),
+  GAFAS(CategoriaPrenda.ACCESORIOS),
+  CHOMBA(CategoriaPrenda.PARTE_SUPERIOR),
+  ZAPATILLAS(CategoriaPrenda.CALZADO);
 
-  public abstract CategoriaPrenda getCategoria();
+  TipoPrenda(CategoriaPrenda categoria) {
+    this.categoria = categoria;
+  }
+
+  private CategoriaPrenda categoria;
+
+  public CategoriaPrenda getCategoria() {
+    return this.categoria;
+  }
 }
