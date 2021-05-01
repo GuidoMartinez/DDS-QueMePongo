@@ -6,10 +6,13 @@ public class BorradorPrenda {
   private Material material;
   private ColorRGB colorPrimario;
   private ColorRGB colorSecundario;
-  private Trama trama = Trama.LISA;
+  private Trama trama;
+  private Trama tramaDefault;
 
-  public BorradorPrenda(TipoPrenda tipo) {
+  public BorradorPrenda(TipoPrenda tipo, Trama tramaDefault) {
     this.tipo = requireNonNull(tipo, "el tipo de prenda no puede ser nulo");
+    this.tramaDefault = tramaDefault;
+    this.trama = tramaDefault;
   }
 
   public void agregarMaterial(Material material) {
@@ -25,11 +28,7 @@ public class BorradorPrenda {
   }
 
   public void agregarTrama(Trama trama) {
-    if (trama == null) {
-      this.trama = Trama.LISA;
-    } else {
-      this.trama = trama;
-    }
+    this.trama = trama == null ? tramaDefault : trama;
   }
 
   private void validarReglasDeCreacion() {

@@ -12,18 +12,25 @@ public class TestBorradorPrenda {
   @DisplayName("Al instanciar un BorradorPrenda sin TipoPrenda, arroja una excepcion")
   void TipoPrendaNullArrojaNullPointerException() {
     Assertions.assertThrows(NullPointerException.class,
-        () -> new BorradorPrenda(null));
+        () -> new BorradorPrenda(null, Trama.LISA));
   }
 
   @Test
-  @DisplayName("Si no indico una trama, o la nulleo, por defecto es lisa")
-  void tramaSinEspecificarEsLISA() {
-    BorradorPrenda borradorTramaNull = borradorPrendaValidaSinTrama();
+  @DisplayName("Si no indico una trama para la prenda en creacion, por defecto es la indicada en el constructor")
+  void tramaSinEspecificarEnConstruccionEsLISA() {
+
+    assertEquals(borradorPrendaValidaSinTramaSeteadaEnConstruccion(Trama.LISA)
+        .crearPrenda().getTrama(), Trama.LISA);
+   }
+
+  @Test
+  @DisplayName("Si seteo null la trama, devuelve la default")
+  void siNulleoLaTramaDevuelveTramaDefault() {
+    BorradorPrenda borradorTramaNull = borradorPrendaValidaSinTramaSeteadaEnConstruccion(Trama.CUADROS);
     borradorTramaNull.agregarTrama(null);
     Prenda prendaLISA = borradorTramaNull.crearPrenda();
 
-    assertEquals(borradorPrendaValidaSinTrama().crearPrenda().getTrama(), Trama.LISA);
-    assertEquals(prendaLISA.getTrama(), Trama.LISA);
+    assertEquals(prendaLISA.getTrama(), Trama.CUADROS);
 
   }
 
@@ -42,26 +49,27 @@ public class TestBorradorPrenda {
   }
 
 
-  private BorradorPrenda borradorPrendaValidaSinTrama() {
-    BorradorPrenda prendaCreable = new BorradorPrenda(TipoPrenda.CAMISA);
-    prendaCreable.agregarColorPrimario(new ColorRGB(0,10,20));
-    prendaCreable.agregarMaterial(Material.ALGODON);
+  private BorradorPrenda borradorPrendaValidaSinTramaSeteadaEnConstruccion(Trama tramaDefault) {
+    BorradorPrenda prendaCreableConTramaDefaultParametrizada= new BorradorPrenda(TipoPrenda.CAMISA, tramaDefault);
+    prendaCreableConTramaDefaultParametrizada.agregarColorPrimario(new ColorRGB(0,10,20));
+    prendaCreableConTramaDefaultParametrizada.agregarMaterial(Material.ALGODON);
 
-    return prendaCreable;
+    return prendaCreableConTramaDefaultParametrizada;
   }
 
   private BorradorPrenda borradorSinColorPrimario() {
-    BorradorPrenda sinColorPrimario = new BorradorPrenda(TipoPrenda.PANTALON);
-    sinColorPrimario.agregarMaterial(Material.ALGODON);
+    BorradorPrenda BorradorsinColorPrimario = new BorradorPrenda(TipoPrenda.PANTALON, Trama.LISA);
+    BorradorsinColorPrimario.agregarMaterial(Material.ALGODON);
 
-    return sinColorPrimario;
+    return BorradorsinColorPrimario;
   }
 
   private BorradorPrenda borradorSinMaterial() {
-    BorradorPrenda sinMaterial = new BorradorPrenda(TipoPrenda.CAMISA);
-    sinMaterial.agregarColorPrimario(new ColorRGB(0,10,20));
-    sinMaterial.agregarColorSecundario(new ColorRGB(20,30,50));
+    BorradorPrenda BorradorsinMaterial = new BorradorPrenda(TipoPrenda.CAMISA, Trama.LISA);
+    BorradorsinMaterial.agregarColorPrimario(new ColorRGB(0,10,20));
+    BorradorsinMaterial.agregarColorSecundario(new ColorRGB(20,30,50));
 
-    return sinMaterial;
+    return BorradorsinMaterial;
   }
+
 }
