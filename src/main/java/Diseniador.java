@@ -1,7 +1,13 @@
-public interface Diseniador {
+public abstract class Diseniador {
 
-  Prenda crearPrendaSuperior();
-  Prenda crearPrendaInferior();
-  Prenda crearCalzado();
+  public Uniforme getUniforme() {
+    return new Uniforme(crearPrendaSuperior(), crearPrendaInferior(), crearCalzado());
+  }
+
+  protected abstract Prenda crearPrendaSuperior();
+
+  protected abstract Prenda crearCalzado();
+
+  protected abstract Prenda crearPrendaInferior();
 
 }

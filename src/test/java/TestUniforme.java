@@ -9,7 +9,7 @@ public class TestUniforme {
   @Test
   @DisplayName("Prenda inferior del uniforme de Johnson se obtiene de manera correcta")
   void laParteInferiorDeJohnsonEsUnPatalonDeVestirNegro() {
-    Uniforme uniJohnson = Uniforme.uniformeInstitucion(new DiseniadorJohnson());
+    Uniforme uniJohnson = new DiseniadorJohnson().getUniforme();
 
     assertEquals(uniJohnson.getParteInferior().getTipo(),TipoPrenda.PANTALON);
     assertEquals(uniJohnson.getParteInferior().getMaterial(),Material.TELA);
@@ -22,7 +22,7 @@ public class TestUniforme {
   @Test
   @DisplayName("Prenda superior del uniforme de San Juan se obtiene de manera correcta")
   void laParteSuperiorDeSanJuanEsUnChombaVerdeDePique() {
-    Uniforme uniSanJuan = Uniforme.uniformeInstitucion(new DiseniadorSanJuan());
+    Uniforme uniSanJuan = new DiseniadorSanJuan().getUniforme();
 
     assertEquals(uniSanJuan.getParteSuperior().getTipo(),TipoPrenda.CHOMBA);
     assertEquals(uniSanJuan.getParteSuperior().getMaterial(),Material.PIQUE);
@@ -42,6 +42,20 @@ public class TestUniforme {
 
     Assertions.assertThrows(NullPointerException.class,
         () -> new Uniforme(prendaSuperior(), prendaInferior(), null));
+  }
+
+  @Test
+  @DisplayName("No puedo construir Uniformes con prendas de categorias incorrectas")
+  void siConstruyoUnUniformeConPrendasDeCategoriaErroneaArrojaExcepcion() {
+    Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
+        () -> new Uniforme(prendaInferior(), prendaInferior(), prendaCalzado()));
+
+    Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
+        () -> new Uniforme(prendaSuperior(), prendaCalzado(), prendaCalzado()));
+
+    Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
+        () -> new Uniforme(prendaSuperior(), prendaInferior(), prendaInferior()));
+
   }
 
   private Prenda prendaSuperior() {

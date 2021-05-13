@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-
 public class TestBorradorPrenda {
 
   @Test
@@ -48,6 +46,15 @@ public class TestBorradorPrenda {
     assertThrows(PrendaIncompletaException.class, () -> borradorSinMaterial().crearPrenda());
   }
 
+  @DisplayName("Puedo guardar un borradorPrenda y verificar que existe en el repo para recuperarlo")
+  @Test
+  void agregarBorradorARepositorioBorradoresYValidarQueSeGuardaOK(){
+    BorradorPrenda borradorAGuardar = borradorPrendaValidaSinTramaSeteadaEnConstruccion(Trama.LISA);
+    borradorAGuardar.agregarseARepoBorradores(repositorioBorradores);
+
+    Assertions.assertTrue(repositorioBorradores.getBorradoresIncompletos().contains(borradorAGuardar));
+    }
+
 
   private BorradorPrenda borradorPrendaValidaSinTramaSeteadaEnConstruccion(Trama tramaDefault) {
     BorradorPrenda prendaCreableConTramaDefaultParametrizada= new BorradorPrenda(TipoPrenda.CAMISA, tramaDefault);
@@ -71,5 +78,7 @@ public class TestBorradorPrenda {
 
     return BorradorsinMaterial;
   }
+
+  private final RepositorioBorradores repositorioBorradores = new RepositorioBorradores();
 
 }

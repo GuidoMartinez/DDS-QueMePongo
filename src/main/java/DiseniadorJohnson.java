@@ -1,6 +1,6 @@
-public class DiseniadorJohnson implements  Diseniador {
+public class DiseniadorJohnson extends Diseniador {
 
-  public Prenda crearPrendaSuperior() {
+  protected Prenda crearPrendaSuperior() {
 
     BorradorPrenda borradorSuperior = new BorradorPrenda(TipoPrenda.CAMISA, Trama.LISA);
     borradorSuperior.agregarMaterial(Material.ALGODON);
@@ -9,7 +9,7 @@ public class DiseniadorJohnson implements  Diseniador {
     return borradorSuperior.crearPrenda();
   }
 
-  public Prenda crearPrendaInferior() {
+  protected Prenda crearPrendaInferior() {
 
     BorradorPrenda borradorInferior = new BorradorPrenda(TipoPrenda.PANTALON, Trama.LISA);
     borradorInferior.agregarMaterial(Material.TELA);
@@ -18,7 +18,7 @@ public class DiseniadorJohnson implements  Diseniador {
     return borradorInferior.crearPrenda();
   }
 
-  public Prenda crearCalzado() {
+  protected Prenda crearCalzado() {
 
     BorradorPrenda borradorInferior = new BorradorPrenda(TipoPrenda.ZAPATOS, Trama.LISA);
     borradorInferior.agregarMaterial(Material.CUERO);

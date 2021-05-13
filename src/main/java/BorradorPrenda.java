@@ -42,4 +42,8 @@ public class BorradorPrenda {
     return new Prenda(tipo, material, colorPrimario, colorSecundario, trama);
 
   }
+
+  public void agregarseARepoBorradores(RepositorioBorradores repositorioBorradores){
+    repositorioBorradores.agregarBorradorIncompleto(this);
+  }
 }
