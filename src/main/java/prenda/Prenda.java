@@ -6,15 +6,17 @@ public class Prenda {
   private ColorRGB colorPrimario;
   private ColorRGB colorSecundario;
   private Trama trama;
+  private Double temperaturaMaxima;
 
 
   public Prenda(TipoPrenda tipo, Material material, ColorRGB colorPrimario,
-                ColorRGB colorSecundario, Trama trama) {
+                ColorRGB colorSecundario, Trama trama, Double temperaturaMaxima) {
     this.tipo = tipo;
     this.material = material;
     this.colorPrimario = colorPrimario;
     this.colorSecundario = colorSecundario;
     this.trama = trama;
+    this.temperaturaMaxima = temperaturaMaxima;
   }
 
   public CategoriaPrenda getCategoria() {
@@ -39,5 +41,9 @@ public class Prenda {
 
   public Trama getTrama() {
     return trama;
+  }
+
+  public Double getTemperaturaMaxima() {
+    return temperaturaMaxima;
   }
 }
