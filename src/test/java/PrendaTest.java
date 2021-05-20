@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import prenda.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class PrendaTest {
 
   @Test
@@ -25,7 +23,8 @@ public class PrendaTest {
 
   private Prenda prendaDeCueroYColorPrimario(TipoPrenda tipo) {
 
-    return new Prenda(tipo, Material.CUERO,new ColorRGB(15,15,15), null, null);
+    return new Prenda(tipo, Material.CUERO,new ColorRGB(15,15,15),
+        null, null, null);
   }
 
 }

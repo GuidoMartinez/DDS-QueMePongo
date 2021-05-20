@@ -23,6 +23,7 @@ public class ServicioAccuWeather implements ProveedorDeClima {
 
   private void actualizarDatosClima() {
     this.condicionesClimaticas =  apiClima.getWeather(CIUDAD);
+
   }
 
 

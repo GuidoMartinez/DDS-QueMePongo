@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 import prenda.*;
 import uniforme.DiseniadorJohnson;
 import uniforme.DiseniadorSanJuan;
-import uniforme.Uniforme;
+import uniforme.Atuendo;
 
-public class TestUniforme {
+public class TestAtuendo {
 
   @Test
   @DisplayName("prenda.Prenda inferior del uniforme de Johnson se obtiene de manera correcta")
   void laParteInferiorDeJohnsonEsUnPatalonDeVestirNegro() {
-    Uniforme uniJohnson = new DiseniadorJohnson().getUniforme();
+    Atuendo uniJohnson = new DiseniadorJohnson().getUniforme();
 
     Assertions.assertEquals(uniJohnson.getParteInferior().getTipo(), TipoPrenda.PANTALON);
     Assertions.assertEquals(uniJohnson.getParteInferior().getMaterial(), Material.TELA);
@@ -25,7 +25,7 @@ public class TestUniforme {
   @Test
   @DisplayName("prenda.Prenda superior del uniforme de San Juan se obtiene de manera correcta")
   void laParteSuperiorDeSanJuanEsUnChombaVerdeDePique() {
-    Uniforme uniSanJuan = new DiseniadorSanJuan().getUniforme();
+    Atuendo uniSanJuan = new DiseniadorSanJuan().getUniforme();
 
     Assertions.assertEquals(uniSanJuan.getParteSuperior().getTipo(),TipoPrenda.CHOMBA);
     Assertions.assertEquals(uniSanJuan.getParteSuperior().getMaterial(),Material.PIQUE);
@@ -38,42 +38,42 @@ public class TestUniforme {
   @DisplayName("Un uniforme siempre tiene una prenda.Prenda Superior, Inferior y Calzado")
   void UniformeConPrendaNullArrojaNullPointerException() {
     Assertions.assertThrows(NullPointerException.class,
-        () -> new Uniforme(null, prendaInferior(), prendaCalzado()));
+        () -> new Atuendo(null, prendaInferior(), prendaCalzado()));
 
     Assertions.assertThrows(NullPointerException.class,
-        () -> new Uniforme(prendaSuperior(), null, prendaCalzado()));
+        () -> new Atuendo(prendaSuperior(), null, prendaCalzado()));
 
     Assertions.assertThrows(NullPointerException.class,
-        () -> new Uniforme(prendaSuperior(), prendaInferior(), null));
+        () -> new Atuendo(prendaSuperior(), prendaInferior(), null));
   }
 
   @Test
   @DisplayName("No puedo construir Uniformes con prendas de categorias incorrectas")
   void siConstruyoUnUniformeConPrendasDeCategoriaErroneaArrojaExcepcion() {
     Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
-        () -> new Uniforme(prendaInferior(), prendaInferior(), prendaCalzado()));
+        () -> new Atuendo(prendaInferior(), prendaInferior(), prendaCalzado()));
 
     Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
-        () -> new Uniforme(prendaSuperior(), prendaCalzado(), prendaCalzado()));
+        () -> new Atuendo(prendaSuperior(), prendaCalzado(), prendaCalzado()));
 
     Assertions.assertThrows(CategoriaErroneaEnParteDePrendaException.class,
-        () -> new Uniforme(prendaSuperior(), prendaInferior(), prendaInferior()));
+        () -> new Atuendo(prendaSuperior(), prendaInferior(), prendaInferior()));
 
   }
 
   private Prenda prendaSuperior() {
     return new Prenda(TipoPrenda.CAMISA, Material.ALGODON, new ColorRGB(10,10,10),
-        null, Trama.ESTAMPA);
+        null, Trama.ESTAMPA, null);
   }
 
   private Prenda prendaInferior() {
     return new Prenda(TipoPrenda.PANTALON, Material.ALGODON, new ColorRGB(55,55,55),
-        null, Trama.ESTAMPA);
+        null, Trama.ESTAMPA, null);
   }
 
   private Prenda prendaCalzado() {
     return new Prenda(TipoPrenda.ZAPATOS, Material.CUERO, new ColorRGB(55,55,55),
-        null, Trama.LISA);
+        null, Trama.LISA, null);
   }
 
 }

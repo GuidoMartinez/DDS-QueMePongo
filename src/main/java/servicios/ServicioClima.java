@@ -1,5 +1,7 @@
 package servicios;
 
+import excepciones.NoSePuedeObtenerInfoDelServicioDeClimaException;
+
 public class ServicioClima {
 
   private ProveedorDeClima proveedor;
@@ -13,7 +15,14 @@ public class ServicioClima {
   }
 
   public Double getTemperatura() {
-    return proveedor.getTemperatura();
+    try {
+      return proveedor.getTemperatura();
+    }
+    catch (Exception e) {
+      throw new NoSePuedeObtenerInfoDelServicioDeClimaException(
+          "No es posible obtener info de la temperuta del proveedor " +proveedor.toString());
+    }
+
   }
 
   public void setProveedor(ProveedorDeClima nuevoProveedor) {
