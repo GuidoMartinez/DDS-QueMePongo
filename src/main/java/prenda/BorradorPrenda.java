@@ -1,3 +1,8 @@
+package prenda;
+
+
+import excepciones.PrendaIncompletaException;
+
 import static java.util.Objects.requireNonNull;
 
 public class BorradorPrenda {
@@ -33,7 +38,7 @@ public class BorradorPrenda {
 
   private void validarReglasDeCreacion() {
     if (material == null || colorPrimario == null) {
-      throw new PrendaIncompletaException("Prenda invalida, no se indico MATERIAL o COLOR PRIMARIO");
+      throw new PrendaIncompletaException("prenda.Prenda invalida, no se indico MATERIAL o COLOR PRIMARIO");
     }
   }
 

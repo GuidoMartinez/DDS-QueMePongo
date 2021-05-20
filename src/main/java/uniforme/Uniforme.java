@@ -1,3 +1,8 @@
+package uniforme;
+import prenda.*;
+
+import excepciones.CategoriaErroneaEnParteDePrendaException;
+
 public class Uniforme {
   private Prenda parteSuperior;
   private Prenda parteInferior;

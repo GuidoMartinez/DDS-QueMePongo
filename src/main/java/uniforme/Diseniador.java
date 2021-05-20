@@ -1,3 +1,7 @@
+package uniforme;
+
+import prenda.*;
+
 public abstract class Diseniador {
 
   public Uniforme getUniforme() {

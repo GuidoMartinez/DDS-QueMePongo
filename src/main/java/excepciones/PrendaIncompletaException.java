@@ -1,5 +1,7 @@
+package excepciones;
+
 public class PrendaIncompletaException extends RuntimeException {
-  PrendaIncompletaException(String msg) {
+  public PrendaIncompletaException(String msg) {
     super(msg);
   }
 }

@@ -1,3 +1,5 @@
+package prenda;
+
 public class ColorRGB {
   private Integer red;
   private Integer green;

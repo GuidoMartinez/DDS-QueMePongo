@@ -1,3 +1,5 @@
+package prenda;
+
 public enum TipoPrenda {
   ZAPATOS(CategoriaPrenda.CALZADO),
   CAMISA(CategoriaPrenda.PARTE_SUPERIOR),

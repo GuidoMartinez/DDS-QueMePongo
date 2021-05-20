@@ -1,3 +1,5 @@
+package prenda;
+
 public class Prenda {
   private TipoPrenda tipo;
   private Material material;

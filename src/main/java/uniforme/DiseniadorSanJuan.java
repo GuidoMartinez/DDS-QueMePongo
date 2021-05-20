@@ -1,3 +1,6 @@
+package uniforme;
+import prenda.*;
+
 public class DiseniadorSanJuan extends Diseniador {
 
   protected Prenda crearPrendaSuperior() {
