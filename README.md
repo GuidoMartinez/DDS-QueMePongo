@@ -1,7 +1,9 @@
 
 # Comentarios sobre el diseño | **Iteracion 4**
 
-Se indica requerimiento y comentario sobre la implementacion del mismo
+Se indica requerimiento y comentario sobre la implementacion del mismo.
+
+*Se sube iteracion con tag*
 
 ```
 Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes
