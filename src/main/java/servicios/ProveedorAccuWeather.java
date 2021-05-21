@@ -5,7 +5,7 @@ import java.util.*;
 import static java.lang.Math.round;
 
 
-public class ServicioAccuWeather implements ProveedorDeClima {
+public class ProveedorAccuWeather implements ProveedorDeClima {
 
   private static final String CIUDAD = "Buenos Aires, Argentina";
 

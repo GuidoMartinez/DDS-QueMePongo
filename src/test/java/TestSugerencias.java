@@ -7,7 +7,7 @@ import prenda.CategoriaPrenda;
 import prenda.Prenda;
 import prenda.TipoPrenda;
 import servicios.GeneradorSugerencias;
-import servicios.ServicioAccuWeather;
+import servicios.ProveedorAccuWeather;
 import servicios.ServicioClima;
 import uniforme.Atuendo;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class TestSugerencias {
 
   // setup
-  ServicioAccuWeather servAccuWeatherMock = mock(ServicioAccuWeather.class);
+  ProveedorAccuWeather servAccuWeatherMock = mock(ProveedorAccuWeather.class);
   ServicioClima servicioClima = new ServicioClima(servAccuWeatherMock);
   GeneradorSugerencias generadorSugerencias = new GeneradorSugerencias(servicioClima);
 

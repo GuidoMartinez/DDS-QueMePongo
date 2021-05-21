@@ -1,6 +1,6 @@
 package servicios;
 
-public class ServicioOtro implements ProveedorDeClima {
+public class ProveedorOtro implements ProveedorDeClima {
 
   public Integer getProbabilidadDePrecipitaciones() {
     return 0;

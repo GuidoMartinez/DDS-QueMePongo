@@ -33,8 +33,9 @@ public class GeneradorSugerencias {
   }
 
 
-  // ya que no se desarrolla iteracion 3 se implementa este metodo a fin de simplificar
   // un atuendo random de la lista de prendas cargadas sin restriccion de temperatura
+  // Se que repite logica ante el metodo anterior, podria utilizarlo poniendole por
+  // ej 100C, pero preferi separarlos
   public Atuendo getAtuendoSugerido(List<Prenda> prendasDisponibles) {
 
     List<Prenda> partesSuperiores = getPrendaCategoriaCorrecta(prendasDisponibles,
@@ -53,9 +54,6 @@ public class GeneradorSugerencias {
 
     return new Atuendo(randomParteSup, randomParteInf, randomParteCalzado, randomParteAccesorio);
   }
-
-
-
 
   private Prenda getPrendaRandomAdecuadaParaLaTemperatura(List<Prenda> prendas,
                                                      CategoriaPrenda categoria, Double tempActual) {

@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import servicios.ServicioAccuWeather;
+import servicios.ProveedorAccuWeather;
 import servicios.ServicioClima;
-import servicios.ServicioOtro;
+import servicios.ProveedorOtro;
 
 public class TestServicioClima {
 
-    ServicioClima servicioClima = new ServicioClima(new ServicioAccuWeather());
-    ServicioAccuWeather mockAccuWeather = mock(ServicioAccuWeather.class);
+    ServicioClima servicioClima = new ServicioClima(new ProveedorAccuWeather());
+    ProveedorAccuWeather mockAccuWeather = mock(ProveedorAccuWeather.class);
 
 
   // Se prueba de esta manera al ser estatico, se llama 2 veces a la API por test ya que
@@ -52,7 +52,7 @@ public class TestServicioClima {
     when(mockAccuWeather.getTemperaturaCelsius()).thenReturn(18.0);
     servicioClima.setProveedor(mockAccuWeather);
     Assertions.assertEquals(18,servicioClima.getTemperatura());
-    servicioClima.setProveedor(new ServicioOtro());
+    servicioClima.setProveedor(new ProveedorOtro());
     Assertions.assertEquals(12.0,servicioClima.getTemperatura());
   }
 
