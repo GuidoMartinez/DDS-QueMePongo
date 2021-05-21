@@ -7,7 +7,12 @@ public enum TipoPrenda {
   REMERA(CategoriaPrenda.PARTE_SUPERIOR),
   GAFAS(CategoriaPrenda.ACCESORIOS),
   CHOMBA(CategoriaPrenda.PARTE_SUPERIOR),
-  ZAPATILLAS(CategoriaPrenda.CALZADO);
+  ZAPATILLAS(CategoriaPrenda.CALZADO),
+  REMERA_MANGA_LARGA(CategoriaPrenda.PARTE_SUPERIOR),
+  CORTO_DEPORTIVO(CategoriaPrenda.PARTE_INFERIOR),
+  GORRO_LANA(CategoriaPrenda.ACCESORIOS),
+  OJOTAS(CategoriaPrenda.CALZADO),
+  PANTUFLAS(CategoriaPrenda.CALZADO);
 
   TipoPrenda(CategoriaPrenda categoria) {
     this.categoria = categoria;
