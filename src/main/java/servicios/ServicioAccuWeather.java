@@ -1,5 +1,7 @@
 package servicios;
 
+import static java.lang.Math.round;
+
 import java.util.*;
 
 public class ServicioAccuWeather implements ProveedorDeClima {
@@ -9,23 +11,24 @@ public class ServicioAccuWeather implements ProveedorDeClima {
   private AccuWeatherAPI apiClima = new AccuWeatherAPI();
   private List<Map<String, Object>> condicionesClimaticas;
 
-  public Double getProbabilidadDePrecipitaciones() {
+  public Integer getProbabilidadDePrecipitaciones() {
     actualizarDatosClima();
-    return (Double) condicionesClimaticas.get(0).get("PrecipitationProbability");
+    return (Integer) condicionesClimaticas.get(0).get("PrecipitationProbability");
     //Devuelve un número del 0 al 1;
   }
 
-  public Double getTemperatura() {
+  public Double getTemperaturaCelsius() {
     actualizarDatosClima();
-    return (Double) condicionesClimaticas.get(0).get("Temperature");
-  } // TODO -- Parsear la respuesta del obj Temperatura y obtener Value y pasarlo de F a C
-
+    Map<String, Object> temp = (Map<String, Object>) condicionesClimaticas
+        .get(0).get("Temperature");
+    return fahrenheitToCelsius((Integer) temp.get("Value"));
+  }
 
   private void actualizarDatosClima() {
     this.condicionesClimaticas =  apiClima.getWeather(CIUDAD);
-
   }
 
-
-
+  private double fahrenheitToCelsius(Integer tempF) {
+    return round((tempF - 32) * (5.0 / 9.0));
+  } // Devuelve 14
 }

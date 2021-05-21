@@ -15,6 +15,9 @@ public class GeneradorSugerencias {
     this.servicioClima = servicioClima;
   }
 
+
+  // ya que no se desarrolla iteracion 3 se implementa este metodo a fin de simplificar
+  // un atuendo random de la lista de sugerencias creadas
   public Atuendo atuendoSugeridoParaTemperaturaActual(List<Prenda> prendasDisponibles) {
     this.tempActual = temperaturaActual();
 

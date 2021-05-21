@@ -21,8 +21,10 @@ public class Atuendo {
     this.parteSuperior = validarPrenda(parteSuperior, CategoriaPrenda.PARTE_SUPERIOR);
     this.parteInferior = validarPrenda(parteInferior, CategoriaPrenda.PARTE_INFERIOR);
     this.calzado = validarPrenda(calzado, CategoriaPrenda.CALZADO);
-    this.accesorio = validarAccesorio(accesorio);
+    this.accesorio = accesorio.getCategoria() == CategoriaPrenda.ACCESORIOS ? accesorio : null;
   }
+  // Se valida accesorio de esta manera ya que no es obligatorio, si categoria es
+  // erronea , se nullea
 
   public Prenda getParteSuperior() {
     return parteSuperior;
@@ -36,6 +38,10 @@ public class Atuendo {
     return calzado;
   }
 
+  public Prenda getAccesorio() {
+    return this.accesorio;
+  }
+
   private Prenda validarPrenda(Prenda prenda, CategoriaPrenda categoria) {
     if (prenda.getCategoria() != categoria) {
       throw new CategoriaErroneaEnParteDePrendaException(
@@ -43,14 +49,4 @@ public class Atuendo {
     }
     return prenda;
   }
-
-  // se utiliza otra validacion ya que los Uniformes creados por los Disenadores no tienen accesorio
-  private Prenda validarAccesorio(Prenda accesorio) {
-    if (accesorio.getCategoria() == CategoriaPrenda.ACCESORIOS || accesorio == null) {
-      return accesorio;
-    }
-    throw new CategoriaErroneaEnParteDePrendaException(
-        "ACCESORIO debe ser de la categoria correcta");
-  }
-
 }

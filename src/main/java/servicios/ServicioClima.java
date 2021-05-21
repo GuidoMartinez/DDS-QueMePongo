@@ -1,5 +1,7 @@
 package servicios;
 
+import static java.util.Objects.requireNonNull;
+
 import excepciones.NoSePuedeObtenerInfoDelServicioDeClimaException;
 
 public class ServicioClima {
@@ -7,26 +9,24 @@ public class ServicioClima {
   private ProveedorDeClima proveedor;
 
   public ServicioClima(ProveedorDeClima proveedor) {
-    this.proveedor = proveedor;
+    this.proveedor = requireNonNull(proveedor, "El proveedor de clima es obligatorio");
   }
 
-  public Double getProbabilidadDePrecipitaciones() {
+  public Integer getProbabilidadDePrecipitaciones() {
     return proveedor.getProbabilidadDePrecipitaciones();
   }
 
   public Double getTemperatura() {
     try {
-      return proveedor.getTemperatura();
-    }
-    catch (Exception e) {
+      return proveedor.getTemperaturaCelsius();
+    } catch (Exception e) {
       throw new NoSePuedeObtenerInfoDelServicioDeClimaException(
-          "No es posible obtener info de la temperuta del proveedor " +proveedor.toString());
+          "No es posible obtener info de la temperatura del proveedor " + proveedor.toString());
     }
-
   }
 
   public void setProveedor(ProveedorDeClima nuevoProveedor) {
-    this.proveedor = nuevoProveedor;
+    this.proveedor = requireNonNull(nuevoProveedor, "El proveedor de clima es obligatorio");
   }
 
 

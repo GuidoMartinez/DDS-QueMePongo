@@ -2,8 +2,8 @@ package servicios;
 
 public interface ProveedorDeClima {
 
-  Double getProbabilidadDePrecipitaciones();
+  Integer getProbabilidadDePrecipitaciones();
 
-  Double getTemperatura();
+  Double getTemperaturaCelsius();
 
 }
