@@ -1,8 +1,9 @@
 package servicios;
 
+import java.util.*;
+
 import static java.lang.Math.round;
 
-import java.util.*;
 
 public class ServicioAccuWeather implements ProveedorDeClima {
 

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import servicios.ServicioAccuWeather;
 import servicios.ServicioClima;
+import servicios.ServicioOtro;
 
 public class TestServicioClima {
 
@@ -32,6 +33,7 @@ public class TestServicioClima {
     Assertions.assertThrows(NullPointerException.class, () -> new ServicioClima(null));
   }
 
+  @DisplayName("Si arroja ")
   @Test
   void siFallaConexionAPIArrojaExcepction(){
     when(mockAccuWeather.getTemperaturaCelsius()).thenThrow(new RuntimeException("API off"));
@@ -42,6 +44,16 @@ public class TestServicioClima {
 
     verify(mockAccuWeather,times(1)).getTemperaturaCelsius();
 
+  }
+
+  @DisplayName("Cambio de servicio de Clima facilmente")
+  @Test
+  void cambioDeServicioDeClimaFacilmente() {
+    when(mockAccuWeather.getTemperaturaCelsius()).thenReturn(18.0);
+    servicioClima.setProveedor(mockAccuWeather);
+    Assertions.assertEquals(18,servicioClima.getTemperatura());
+    servicioClima.setProveedor(new ServicioOtro());
+    Assertions.assertEquals(12.0,servicioClima.getTemperatura());
   }
 
 }

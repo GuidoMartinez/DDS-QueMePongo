@@ -22,7 +22,7 @@ public class ServicioClima {
     } catch (Exception e) {
       throw new NoSePuedeObtenerInfoDelServicioDeClimaException(
           "No es posible obtener info de la temperatura del proveedor " + proveedor.toString());
-    }
+    }// Aca podria seter un otro proveedor de clima para recuperarme del error
   }
 
   public void setProveedor(ProveedorDeClima nuevoProveedor) {

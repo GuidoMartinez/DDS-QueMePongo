@@ -16,9 +16,8 @@ public class GeneradorSugerencias {
   }
 
 
-  // ya que no se desarrolla iteracion 3 se implementa este metodo a fin de simplificar
-  // un atuendo random de la lista de sugerencias creadas
-  public Atuendo atuendoSugeridoParaTemperaturaActual(List<Prenda> prendasDisponibles) {
+
+  public Atuendo getAtuendoSugeridoParaTemperaturaActual(List<Prenda> prendasDisponibles) {
     this.tempActual = temperaturaActual();
 
     Prenda parteSuperior = getPrendaRandomAdecuadaParaLaTemperatura(prendasDisponibles,
@@ -34,12 +33,37 @@ public class GeneradorSugerencias {
   }
 
 
+  // ya que no se desarrolla iteracion 3 se implementa este metodo a fin de simplificar
+  // un atuendo random de la lista de prendas cargadas sin restriccion de temperatura
+  public Atuendo getAtuendoSugerido(List<Prenda> prendasDisponibles) {
+
+    List<Prenda> partesSuperiores = getPrendaCategoriaCorrecta(prendasDisponibles,
+        CategoriaPrenda.PARTE_SUPERIOR);
+    List<Prenda> partesInferiores = getPrendaCategoriaCorrecta(prendasDisponibles,
+        CategoriaPrenda.PARTE_INFERIOR);
+    List<Prenda> calzados = getPrendaCategoriaCorrecta(prendasDisponibles,
+        CategoriaPrenda.CALZADO);
+    List<Prenda> accesorios = getPrendaCategoriaCorrecta(prendasDisponibles,
+        CategoriaPrenda.ACCESORIOS);
+
+    Prenda randomParteSup = partesSuperiores.get(new Random().nextInt(partesSuperiores.size()));
+    Prenda randomParteInf = partesInferiores.get(new Random().nextInt(partesInferiores.size()));
+    Prenda randomParteCalzado = calzados.get(new Random().nextInt(calzados.size()));
+    Prenda randomParteAccesorio = accesorios.get(new Random().nextInt(accesorios.size()));
+
+    return new Atuendo(randomParteSup, randomParteInf, randomParteCalzado, randomParteAccesorio);
+  }
+
+
+
+
   private Prenda getPrendaRandomAdecuadaParaLaTemperatura(List<Prenda> prendas,
                                                      CategoriaPrenda categoria, Double tempActual) {
 
     List<Prenda> prendasTemperaturaValida = getPrendaCategoriaCorrecta(prendas, categoria)
         .stream().filter(prenda -> prenda.getTemperaturaMaxima() <= tempActual)
         .collect(Collectors.toList());
+
 
     return prendasTemperaturaValida.get(new Random().nextInt(prendasTemperaturaValida.size()));
   }

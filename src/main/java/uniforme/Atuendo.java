@@ -1,7 +1,10 @@
 package uniforme;
 
 import excepciones.CategoriaErroneaEnParteDePrendaException;
+import java.util.Arrays;
+import java.util.List;
 import prenda.*;
+
 
 
 public class Atuendo {
@@ -40,6 +43,10 @@ public class Atuendo {
 
   public Prenda getAccesorio() {
     return this.accesorio;
+  }
+
+  public List<Prenda> getPrendasAtuendo() {
+    return Arrays.asList(parteSuperior, parteInferior, calzado, accesorio);
   }
 
   private Prenda validarPrenda(Prenda prenda, CategoriaPrenda categoria) {
