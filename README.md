@@ -1,4 +1,18 @@
 
+# Comentarios sobre el diseño | **Iteracion 5**
+
+
+*Se sube iteracion con tag*
+*En el diagrama, en color las nuevas clases de la iteracion*
+
+```
+Como usuarie de QuéMePongo, quiero poder deshacer las propuestas de modificación que haya aceptado
+``` 
+
+Se deja comentario en metodo deshacer() en Recomendacion.class
+
+
+
 # Comentarios sobre el diseño | **Iteracion 4**
 
 Se indica requerimiento y comentario sobre la implementacion del mismo.
