@@ -1,3 +1,40 @@
+# Comentarios sobre el diseño | **Iteracion 6**
+
+*Se sube iteracion 6 con tag*.
+*En el diagrama, en color las nuevas clases de la iteracion*.
+
+Sobre los puntos bonus, que no implemente
+
+```
+Bonus:
+Como administradore de QueMePongo, quiero que las sugerencias diarias se calculen automáticamente sin que un empleado necesite disparar esta acción manualmente
+
+Como administradore de QueMePongo, quiero que las alertas se publiquen en el sitio automáticamente sin que un empleado necesite disparar esta acción manualmente
+```
+
+Hace referencia a utilizar un framework como Quartz o correrlo bajo un crontab?
+
+
+Requerimiento 3
+```
+Como usuarie de QueMePongo, quiero poder conocer cuáles son las últimas alertas meteorológicas publicadas en el sistema para estar informado (pudiendo verlas, por ejemplo, al entrar en quemepongo.com)
+```
+
+En caso de tener UI, mostraria la respuesta del mensaje getUltimasAlertas del RepositorioAvisos.
+
+
+Requerimiento 5
+```
+Como usuarie de QuéMePongo quiero que se actualice mi sugerencia diaria con las condiciones climáticas actualizadas cuando se genere algún alerta durante el día 
+```
+
+Para cumplir con este requerimiento, debo sumar en la lista de accionesAnteAlerta en Usuario la implementacion de AccionAlertaMeterologia en RecalculoSugerencia.
+
+
+
+General -> para esta entrega no llegue a realizar los test de los distintos requerimientos.
+
+
 
 # Comentarios sobre el diseño | **Iteracion 5**
 
@@ -9,7 +46,7 @@
 Como usuarie de QuéMePongo, quiero poder deshacer las propuestas de modificación que haya aceptado
 ``` 
 
-Se deja comentario en metodo deshacer() en Recomendacion.class
+Se deja comentario en metodo deshacer() en dominio.Recomendacion.class
 
 
 
@@ -68,7 +105,7 @@ Se testea aparte la conexion con el servicio de clima. Para el testeo de generar
 ```
 Como usuarie de QuéMePongo, quiero guardar un borrador de la última prenda que empecé a cargar para continuar después.
 ```
-En la siguiente iteracion, en caso de exitir un Usuario, se podria guardar en lista del mismo. Por el momento al no necesitar testear el Repositorio de borradoresPrenda, no me genera inconvenientes el patron utilizado.
+En la siguiente iteracion, en caso de exitir un dominio.Usuario, se podria guardar en lista del mismo. Por el momento al no necesitar testear el Repositorio de borradoresPrenda, no me genera inconvenientes el patron utilizado.
 
  2. El siguiente requerimiento se cumple controlando el momento de la creacion de la prenda a traves del prenda.BorradorPrenda por medio de la UI:
 ```

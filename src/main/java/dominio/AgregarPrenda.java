@@ -1,3 +1,5 @@
+package dominio;
+
 import prenda.Prenda;
 
 public class AgregarPrenda extends Recomendacion {

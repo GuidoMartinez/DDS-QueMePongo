@@ -2,7 +2,10 @@ package servicios;
 
 import static java.util.Objects.requireNonNull;
 
+import acciones.Alerta;
 import excepciones.NoSePuedeObtenerInfoDelServicioDeClimaException;
+
+import java.util.List;
 
 public class ServicioClima {
 
@@ -23,6 +26,10 @@ public class ServicioClima {
       throw new NoSePuedeObtenerInfoDelServicioDeClimaException(
           "No es posible obtener info de la temperatura del proveedor " + proveedor.toString());
     }// Aca podria seter un otro proveedor de clima para recuperarme del error
+  }
+
+  public List<Alerta> getAlertasActuales() {
+    return this.proveedor.getAlertasActuales();
   }
 
   public void setProveedor(ProveedorDeClima nuevoProveedor) {

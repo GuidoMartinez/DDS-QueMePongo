@@ -1,3 +1,5 @@
+package dominio;
+
 import excepciones.PrendaNoExisteEnGuardarropaException;
 import prenda.Prenda;
 

@@ -1,5 +1,7 @@
 package servicios;
 
+import acciones.Alerta;
+
 import java.util.*;
 
 import static java.lang.Math.round;
@@ -25,8 +27,12 @@ public class ProveedorAccuWeather implements ProveedorDeClima {
     return fahrenheitToCelsius((Integer) temp.get("Value"));
   }
 
+  public List<Alerta> getAlertasActuales() {
+    return apiClima.getAlertasActuales(CIUDAD);
+  }
+
   private void actualizarDatosClima() {
-    this.condicionesClimaticas =  apiClima.getWeather(CIUDAD);
+    this.condicionesClimaticas = apiClima.getWeather(CIUDAD);
   }
 
   private double fahrenheitToCelsius(Integer tempF) {

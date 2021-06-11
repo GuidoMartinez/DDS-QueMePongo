@@ -1,3 +1,5 @@
+package dominio;
+
 import prenda.Prenda;
 
 public abstract class Recomendacion {

@@ -1,3 +1,4 @@
+import dominio.*;
 import excepciones.PrendaNoExisteEnGuardarropaException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,8 +20,8 @@ public class TestRecomendacion {
   @BeforeEach
   void setup() {
 
-    usuario1 = new Usuario();
-    usuario2 = new Usuario();
+    usuario1 = new Usuario(null,null);
+    usuario2 = new Usuario(null,null);
 
     guardarropa1 = new Guardarropa();
     guardarropa2 = new Guardarropa();
@@ -35,7 +36,7 @@ public class TestRecomendacion {
     usuarios.clear();
   }
 
-  @DisplayName("Usuario puede tener varios guardarropas")
+  @DisplayName("dominio.Usuario puede tener varios guardarropas")
   @Test
   void usuarioPuedeManejar3Guardarropas() {
     usuario1.agregarGuardarropa(guardarropa1);
